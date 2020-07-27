@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { pizzas, main } from '../menu';
+import { pizzas, main, desserts } from '../menu';
 
 
 const Menu = () => {
@@ -48,16 +48,16 @@ const Menu = () => {
         </div>
 
         <div className='flex flex-col md:flex-row mx-auto text-center w-11/12 md:w-2/4 mb-8'>
-        <button onClick={handleSelectedMain} className={selectedMain ? 'bg-orange-400 text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2  shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4' : 'bg-white  hover:bg-orange-400 text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4'} href="#v-pizza" role="tab" aria-controls="v-pizza" aria-selected={selectedPizza}>
+        <button onClick={handleSelectedMain} className={selectedMain ? 'bg-red-700 text-white font-semibold py-2 px-4 border-none mx-auto md:mx-2  shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4' : 'bg-white  hover:bg-red-700 hover:text-white text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4'} href="#v-pizza" role="tab" aria-controls="v-pizza" aria-selected={selectedPizza}>
             Main
           </button>
-                  <button onClick={handleSelectedPizza} className={selectedPizza ? 'bg-orange-400 text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2  shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4' : 'bg-white  hover:bg-orange-400 text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4'} href="#v-pizza" role="tab" aria-controls="v-pizza" aria-selected={selectedPizza}>
+                  <button onClick={handleSelectedPizza} className={selectedPizza ? 'bg-red-700 text-white font-semibold py-2 px-4 border-none mx-auto md:mx-2  shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4' : 'bg-white  hover:bg-red-700 hover:text-white text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4'} href="#v-pizza" role="tab" aria-controls="v-pizza" aria-selected={selectedPizza}>
             Pizze
           </button>
-          <button onClick={handleSelectedDesserts} className={selectedDesserts ? 'bg-orange-400 text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4' : 'bg-white hover:bg-orange-400 text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4'} href="#v-dessert" role="tab" aria-controls="v-dessert" aria-selected={selectedDesserts}>
+          <button onClick={handleSelectedDesserts} className={selectedDesserts ? 'bg-red-700 text-white font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4' : 'bg-white hover:bg-red-700 hover:text-white text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4'} href="#v-dessert" role="tab" aria-controls="v-dessert" aria-selected={selectedDesserts}>
             Dessert
           </button>
-                  <button onClick={handleSelectedDrinks} className={selectedDrinks ? 'bg-orange-400 text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4' : 'bg-white hover:bg-orange-400 text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4'} href="#v-drinks" role="tab" aria-controls="v-drinks" aria-selected={selectedDrinks}>
+                  <button onClick={handleSelectedDrinks} className={selectedDrinks ? 'bg-red-700 text-white font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4' : 'bg-white hover:bg-red-700 hover:text-white text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow transition duration-1000 ease-in-out transform hover:-translate-y-1 focus:outline-none hover:scale-110 w-3/4'} href="#v-drinks" role="tab" aria-controls="v-drinks" aria-selected={selectedDrinks}>
             La Nostra Cantina
           </button>
         </div>
@@ -170,7 +170,7 @@ const Menu = () => {
                   </div>
                   <div className='flex flex-row flex-wrap'>
                     {pizza.ingredients.map((ing, i) => (
-                      <p key={i} className='text-orange-400 text-base mr-1 text-left'>
+                      <p key={i} className='text-red-400 text-base mr-1 text-left'>
                         {ing}
                       </p>
                     ))}
@@ -190,8 +190,27 @@ const Menu = () => {
               <p className="text-gray-900 font-light text-xl mb-2  text-left">A lato degli ingredienti vengono riportati i codici degli allergeni presenti in ogni preparazione (la lista si trova nell'ultima pagina del menu')</p>
           </div>
               </div>
-              <div id="v-dessert" className={selectedDesserts ?  'block': 'hidden'}>
-                        dessert
+              <div id="v-dessert" className={selectedDesserts ?  'block w-11/12 md:w-3/5 flex flex-row flex-wrap text-left mx-auto p-2 mb-4 overflow-hidden shadow-lg': 'hidden'}>
+                     {desserts.map((dessert, i) => (
+                        <div key={i} className=' w-full flex justify-between px-1 mb-4'>
+                        <div className='rounded-b lg:rounded-b-none justify-start lg:rounded-r p-2 flex flex-col'>
+                            <div className='mb-2'>
+                            <div className='text-gray-900 font-bold text-xl mb-2 text-left '>
+                                {dessert.name}
+                            </div>
+                            </div>
+                        </div>
+                        <div className='rounded-b lg:rounded-b-none lg:rounded-r p-2  leading-normal'>
+                            <h1 className='text-gray-900 font-bold text-xl inline'>
+                            &euro; {dessert.price},00
+                            </h1>
+                        </div>
+                        </div>
+                     ))}
+                     <div className="p-2">
+                        <p className="text-gray-900 font-light text-xl mb-2  text-left">Tutte i nostri dessert congelati possono essere aggiunti caffe' o alcolici &euro;1,00 </p>
+                        <p className="text-gray-900 font-light text-xl mb-2  text-left">Coperto  &euro;2,00</p>
+                    </div>
               </div>
               <div id="v-drinks" className={selectedDrinks ?  'block': 'hidden'}>
                         drinks

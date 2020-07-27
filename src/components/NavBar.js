@@ -12,8 +12,8 @@ const Header = () => {
   return (
     <header className='absolute w-full bg-gray-900 text-white text-base font-light font-sans p-6'>
       <nav className='container  mx-auto flex flex-wrap justify-between'>
-        <div className='z-50 m-0 p-0'>
-                  <img src={Striscia} alt="via roma non solo pizza logo" style={{ height: '50px', width: '50px'}}/>
+        <div className='z-50 -my-32 py-2'>
+                  <img src={Striscia} alt="via roma non solo pizza logo" style={{  width: '400px'}}/>
         </div>
         <div className='block  z-50 border-none'>
           <div className='block lg:hidden  z-50 border-none'>
@@ -56,7 +56,7 @@ const Header = () => {
                 onClick={(e) => handleToggle(e)}
                 className='block px-1 py-2 m-1 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:text-blue-500'
               >
-                <Link to='/about'>ABOUT</Link>
+                <Link to='/about'>GALLERY</Link>
               </li>
               <li
                 onClick={(e) => handleToggle(e)}

@@ -153,9 +153,29 @@ export const main = [{
 
 }]
 
-export const dessert = [
+export const desserts = [
     {
         'name': 'Tartufo* bianco/cioccolato (1-3-7-8)',
+        'price': 5
+    },
+    {
+        'name': 'Pistacchio* (1-7-8)',
+        'price': 5
+    },
+    {
+        'name': 'Coccotella* (3-7-8)',
+        'price': 5
+    },
+    {
+        'name': 'Meringa* (3-6-7-8)',
+        'price': 5
+    },
+    {
+        'name': 'Tiramisu* (1-3-7-8)',
+        'price': 5
+    },
+    {
+        'name': 'Coppa di gelato (7)',
         'price': 5
     },
 ]
