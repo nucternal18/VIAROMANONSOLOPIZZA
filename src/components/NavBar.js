@@ -10,7 +10,7 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <header className='absolute w-full bg-gray-900 text-white text-base font-thin font-sans p-6'>
+    <header className='absolute w-full bg-gray-900 text-white text-base font-light font-sans p-6'>
       <nav className='container  mx-auto flex flex-wrap justify-between'>
         <div className='z-50 m-0 p-0'>
                   <img src={Striscia} alt="via roma non solo pizza logo" style={{ height: '50px', width: '50px'}}/>
