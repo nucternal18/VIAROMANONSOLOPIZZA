@@ -9,7 +9,7 @@ import PizzaImg3 from '../assets/img/ivan-torres-MQUqbmszGGM-unsplash.jpg';
 import PizzaImg4 from '../assets/img/nik-owens-40OJLYVWeeM-unsplash.jpg';
 
 const Slider = () => (
-        <Carousel autoPlay infiniteLoop showStatus={false} showThumbs={false} className="w-full flex-grow">
+        <Carousel autoPlay infiniteLoop showStatus={false} showThumbs={false} className="w-full h-full flex-grow">
             <div>
                 <img alt="" src={PizzaImg1} />
                 

@@ -11,9 +11,9 @@ const Header = () => {
   };
   return (
     <header className='absolute w-full bg-gray-900 text-white text-base font-light font-sans p-6'>
-      <nav className='container  mx-auto flex flex-wrap justify-between'>
-        <div className='z-50 -my-32 py-2'>
-                  <img src={Striscia} alt="via roma non solo pizza logo" style={{  width: '400px'}}/>
+      <nav className='container  mx-auto flex flex-row justify-between'>
+        <div className='z-50 -my-16 md:-my-24 py-2 md:py-4'>
+                  <img src={Striscia} alt="via roma non solo pizza logo" className=" w-3/4 md:w-2/5"/>
         </div>
         <div className='block  z-50 border-none'>
           <div className='block lg:hidden  z-50 border-none'>
