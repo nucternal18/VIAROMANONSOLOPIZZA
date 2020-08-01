@@ -190,26 +190,26 @@ const Menu = () => {
               <p className="text-gray-900 font-light text-xl mb-2  text-left">A lato degli ingredienti vengono riportati i codici degli allergeni presenti in ogni preparazione (la lista si trova nell'ultima pagina del menu')</p>
           </div>
               </div>
-              <div id="v-dessert" className={selectedDesserts ?  'block w-11/12 md:w-3/5 flex flex-row flex-wrap text-left mx-auto p-2 mb-4 overflow-hidden shadow-lg': 'hidden'}>
+              <div id="v-dessert" className={selectedDesserts ?  'block w-11/12 md:w-3/5 flex flex-row flex-wrap text-left mx-auto p-1 md:p-2 mb-4 overflow-hidden shadow-lg': 'hidden'}>
                      {desserts.map((dessert, i) => (
-                        <div key={i} className=' w-full flex justify-between px-1 mb-4'>
-                        <div className='rounded-b lg:rounded-b-none justify-start lg:rounded-r p-2 flex flex-col'>
+                        <div key={i} className=' w-full flex justify-between mb-4'>
+                        <div className='rounded-b lg:rounded-b-none justify-start lg:rounded-r p-1 md:p-2 w-4/6'>
                             <div className='mb-2'>
-                            <div className='text-gray-900 font-bold text-xl mb-2 text-left '>
+                            <div className='text-gray-900 font-bold text-lg md:text-xl mb-2 text-left break-all '>
                                 {dessert.name}
                             </div>
                             </div>
                         </div>
-                        <div className='rounded-b lg:rounded-b-none lg:rounded-r p-2  leading-normal'>
-                            <h1 className='text-gray-900 font-bold text-xl inline'>
+                        <div className='rounded-b lg:rounded-b-none lg:rounded-r p-1 md:p-2 mx-2 leading-normal'>
+                            <h2 className='text-gray-900 font-bold text-base md:text-xl inline text-justify'>
                             &euro; {dessert.price},00
-                            </h1>
+                            </h2>
                         </div>
                         </div>
                      ))}
                      <div className="p-2">
-                        <p className="text-gray-900 font-light text-xl mb-2  text-left">Tutte i nostri dessert congelati possono essere aggiunti caffe' o alcolici &euro;1,00 </p>
-                        <p className="text-gray-900 font-light text-xl mb-2  text-left">Coperto  &euro;2,00</p>
+                        <p className="text-gray-900 font-light text-lg md:text-xl mb-2  text-left">Tutte i nostri dessert congelati possono essere aggiunti caffe' o alcolici &euro;1,00 </p>
+                        <p className="text-gray-900 font-light text-lg md:text-xl mb-2  text-left">Coperto  &euro;2,00</p>
                     </div>
               </div>
               <div id="v-drinks" className={selectedDrinks ?  'block': 'hidden'}>
