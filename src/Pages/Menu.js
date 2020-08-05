@@ -38,7 +38,7 @@ const Menu = () => {
 
     
   return (
-    <div className='w-full my-32 flex flex-col flex-grow'>
+    <div className='w-full my-8 flex flex-col flex-grow'>
       <div className='container w-full mx-auto'>
         <div className='mb-8'>
           <p className=' text-center'>OUR MENU</p>

@@ -6,24 +6,24 @@ import ErrorBoundary from '../components/ErrorBoundary';
 import Spinner from '../components/Spinner';
 
 
-import NavBar from '../components/NavBar';
+import Navbar from '../components/Nav/Navbar';
 import Footer from '../components/Footer';
 
 //Pages
 import Home from '../Pages/Home';
-import About from '../Pages/About';
+import Gallery from '../Pages/Gallery';
 import Menu from '../Pages/Menu';
 import Contact from '../Pages/Contact';
 
 const Routes = () => {
   return (
     <>
-      <NavBar />
+      <Navbar />
         <Switch>
           <ErrorBoundary>
             <Suspense fallback={<Spinner />}>
               <Route exact path='/' component={Home} />
-              <Route exact path='/about' component={About} />
+              <Route exact path='/gallery' component={Gallery} />
               <Route exact path='/menu' component={Menu} />
               <Route exact path='/contact' component={Contact} />
             </Suspense>
