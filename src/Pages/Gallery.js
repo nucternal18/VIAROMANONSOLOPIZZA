@@ -1,5 +1,5 @@
 import React from 'react';
-import GalleryAdmin from './GalleryAdmin';
+// import GalleryAdmin from './GalleryAdmin';
 import ImageGrid from '../components/imageGrid';
 
 const Gallery = () => {
