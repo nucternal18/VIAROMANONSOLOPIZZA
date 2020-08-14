@@ -1,9 +1,11 @@
 import React from 'react';
+import Instagram from './Instagram';
 
 
 const Footer = () => {
   return (
     <>
+      {/* <Instagram /> */}
       <footer className=' w-full bg-gray-900 py-6 text-white bottom-0 left-0 mb-0'>
         <div className='container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between'>
           <div className='w-3/4 md:w-1/4 mb-4'>

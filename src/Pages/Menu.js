@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { pizzas, main, desserts } from '../menu';
+import { pizzas, main, desserts } from '../menuDB';
 
 
 const Menu = () => {
@@ -83,7 +83,7 @@ const Menu = () => {
                     </div>
                     <div className='rounded-b lg:rounded-b-none lg:rounded-r p-2  leading-normal'>
                         <h1 className='text-gray-900 font-bold text-xl inline'>
-                        &euro; {ant.price},00
+                        &euro; {ant.price}
                         </h1>
                     </div>
                     </div>
@@ -105,7 +105,7 @@ const Menu = () => {
                         </div>
                         <div className='rounded-b lg:rounded-b-none lg:rounded-r p-2  leading-normal'>
                             <h1 className='text-gray-900 font-bold text-xl inline'>
-                                &euro; {prm.price},00
+                                &euro; {prm.price}
                             </h1>
                         </div>
                     </div>
@@ -127,7 +127,7 @@ const Menu = () => {
                         </div>
                         <div className='rounded-b lg:rounded-b-none lg:rounded-r p-2  leading-normal'>
                             <h1 className='text-gray-900 font-bold text-xl inline'>
-                                &euro; {sec.price},00
+                                &euro; {sec.price}
                             </h1>
                         </div>
                     </div>
@@ -149,7 +149,7 @@ const Menu = () => {
                         </div>
                         <div className='rounded-b lg:rounded-b-none lg:rounded-r p-2  leading-normal'>
                             <h1 className='text-gray-900 font-bold text-xl inline'>
-                                &euro; {cont.price},00
+                                &euro; {cont.price}
                             </h1>
                         </div>
                     </div>
@@ -179,7 +179,7 @@ const Menu = () => {
               </div>
               <div className='rounded-b lg:rounded-b-none lg:rounded-r p-2  leading-normal'>
                 <h1 className='text-gray-900 font-bold text-xl inline'>
-                  &euro; {pizza.price},00
+                  &euro; {pizza.price}
                 </h1>
               </div>
             </div>
@@ -202,7 +202,7 @@ const Menu = () => {
                         </div>
                         <div className='rounded-b lg:rounded-b-none lg:rounded-r p-1 md:p-2 mx-2 leading-normal'>
                             <h2 className='text-gray-900 font-bold text-base md:text-xl inline text-justify'>
-                            &euro; {dessert.price},00
+                            &euro; {dessert.price}
                             </h2>
                         </div>
                         </div>
