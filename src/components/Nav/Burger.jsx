@@ -12,7 +12,7 @@ const Burger = () => {
         <div />
         <div />
       </StyledBurger>
-      <RightNav open={open}/>
+      <RightNav open={ open } setOpen={ setOpen }/>
     </>
   )
 };
@@ -22,7 +22,7 @@ const StyledBurger = styled.div`
   height: 2rem;
   position: relative;
   top: 15px;
-  right: 20px;
+  right: 5px;
   z-index: 50;
   display: none;
 

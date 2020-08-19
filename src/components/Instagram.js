@@ -4,7 +4,7 @@ import { projectFirestore, timestamp } from "../firebase/config";
 import useFirestore from "../hooks/useFirestore";
 
 const Instagram = () => {
-  const [post, setPost] = useState([]);
+  // const [post, setPost] = useState([]);
   const [error, setError] = useState(null);
 
   const { docs } = useFirestore("instImages");

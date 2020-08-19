@@ -9,24 +9,28 @@ import PizzaImg3 from '../assets/img/ivan-torres-MQUqbmszGGM-unsplash.jpg';
 import PizzaImg4 from '../assets/img/nik-owens-40OJLYVWeeM-unsplash.jpg';
 
 const Slider = () => (
-        <Carousel autoPlay infiniteLoop showStatus={false} showThumbs={false} className="w-full h-full md:h- flex-grow">
-            <div>
-                <img alt="" src={PizzaImg1} />
-                
-            </div>
-            <div>
-                <img alt="" src={PizzaImg2} />
-                
-            </div>
-            <div>
-                <img alt="" src={PizzaImg3} />
-                
-            </div>
-            <div>
-                <img alt="" src={PizzaImg4} />
-                
-            </div>
-        </Carousel>
+  <div>
+    <Carousel
+      autoPlay
+      infiniteLoop
+      showStatus={false}
+      showThumbs={false}
+      className="w-full"
+    >
+      <div >
+        <img alt="" src={PizzaImg1} id="intro" />
+      </div>
+      <div>
+        <img alt="" src={PizzaImg2} id="intro" />
+      </div>
+      <div>
+        <img alt="" src={PizzaImg3} id="intro" />
+      </div>
+      <div>
+        <img alt="" src={PizzaImg4} id="intro" />
+      </div>
+    </Carousel>
+  </div>
 );
 
 export default Slider;

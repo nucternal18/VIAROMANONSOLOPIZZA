@@ -78,3 +78,17 @@ body{
     scroll-behavior: smooth;
 }
 
+/* Slider image */
+#intro {
+    height: 400px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media (min-width: 576px) {
+    #intro {
+        height: 700px;
+    }
+}
+

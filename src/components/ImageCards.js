@@ -4,7 +4,7 @@ const ImageCards = ({ image }) => {
 
     return (
     <div className=" h-48 shadow-lg">
-        <img src={image.url} alt="" className="w-full object-fit" />
+        <img src={image.url} alt="" className="h-full w-full object-cover" />
     </div>
     )
 }

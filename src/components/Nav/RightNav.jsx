@@ -2,21 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const RightNav = ({ open }) => {
+const RightNav = ({ open, setOpen }) => {
   return (
-    <Ul open={open}>
-      <li>
-        <Link to="/">HOME</Link>
-      </li>
-      <li>
-        <Link to="/menu">MENU</Link>
-      </li>
-      <li>
-        <Link to="/gallery">GALLERY</Link>
-      </li>
-      <li>
-        <Link to="/contact">CONTACT</Link>
-      </li>
+    <Ul open={open} onClick={() => setOpen(!open)}>
+      <Link to="/">
+        <li>HOME</li>
+      </Link>
+
+      <Link to="/menu">
+        <li>MENU</li>
+      </Link>
+
+      <Link to="/gallery">
+        <li>GALLERY</li>
+      </Link>
+
+      <Link to="/contact">
+        <li>CONTACT</li>
+      </Link>
     </Ul>
   );
 };
