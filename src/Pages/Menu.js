@@ -1,124 +1,151 @@
-import React, {useState} from 'react';
-import { pizzas, main, desserts } from '../menuDB';
+import React, { useState, useEffect } from "react";
 
+import {
+  projectFirestore,
+  convertCollectionsSnapshotToMap,
+} from "../firebase/config";
+import Spinner from "../components/Spinner";
 
 const Menu = () => {
-    const [selectedMain, setSelectedMain] = useState(false)
-    const [selectedPizza, SetSelectedPizza] = useState(true)
-    const [selectedDesserts, SetSelectedDesserts] = useState(false)
-    const [selectedDrinks, SetSelectedDrinks] = useState(false);
+  const [menu, setMenu] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [selectedMain, setSelectedMain] = useState(false);
+  const [selectedPizza, SetSelectedPizza] = useState(true);
+  const [selectedDesserts, SetSelectedDesserts] = useState(false);
+  const [selectedDrinks, SetSelectedDrinks] = useState(false);
 
+  const handleSelectedMain = () => {
+    setSelectedMain(true);
+    SetSelectedPizza(false);
+    SetSelectedDesserts(false);
+    SetSelectedDrinks(false);
+  };
+  const handleSelectedPizza = () => {
+    SetSelectedPizza(true);
+    setSelectedMain(false);
+    SetSelectedDesserts(false);
+    SetSelectedDrinks(false);
+  };
 
-    const handleSelectedMain = () => {
-        setSelectedMain(true)
-        SetSelectedPizza(false)
-        SetSelectedDesserts(false)
-        SetSelectedDrinks(false)
+  const handleSelectedDesserts = () => {
+    SetSelectedDesserts(true);
+    setSelectedMain(false);
+    SetSelectedPizza(false);
+    SetSelectedDrinks(false);
+  };
+
+  const handleSelectedDrinks = () => {
+    SetSelectedDrinks(true);
+    setSelectedMain(false);
+    SetSelectedPizza(false);
+    SetSelectedDesserts(false);
+  };
+
+  useEffect(() => {
+    const collectionRef = projectFirestore.collection("Menu");
+
+    const unsubscribeFromSnapshot = collectionRef.onSnapshot(async (snapshot) => {
+      const collectionMap = convertCollectionsSnapshotToMap(snapshot);
+      setMenu(collectionMap);
+      setLoading(false);
+    });
+
+    return () => {
+      unsubscribeFromSnapshot();
     }
-    const handleSelectedPizza = () => {
-        SetSelectedPizza(true)
-        setSelectedMain(false)
-        SetSelectedDesserts(false)
-        SetSelectedDrinks(false)
-    }
+  }, []);
 
-    const handleSelectedDesserts = () => {
-        SetSelectedDesserts(true)
-        setSelectedMain(false)
-        SetSelectedPizza(false)
-        SetSelectedDrinks(false)
-    }
+  const { pizzas, main, desserts, cantina } = menu;
 
-    const handleSelectedDrinks = () => {
-        SetSelectedDrinks(true)
-        setSelectedMain(false)
-        SetSelectedPizza(false)
-        SetSelectedDesserts(false)
-    }
-
-    
   return (
-    <div className="w-full my-8 flex flex-col flex-grow">
-      <div className="container w-full mx-auto">
-        <div className="mb-8">
-          <h1 className="text-2xl md:text-3xl mx-auto mb-4 text-center w-3/5 border-b border-red-200">
-            Discover Our Menu
-          </h1>
-          <p className=" text-center font-thin mx-4 my-2 text-justify">
-            Few things come close to the joy of Pizza cooked simply with tender
-            love and care. Rest assured that our we source the best ingredients.
-          </p>
-        </div>
+    <>
+      <div className="w-full my-8 flex flex-col flex-grow">
+        <div className="container w-full mx-auto">
+          <div className="mb-8">
+            <h1 className="text-2xl md:text-3xl mx-auto mb-4 text-center w-3/5 border-b border-red-200">
+              Discover Our Menu
+            </h1>
+            <p className=" text-center font-thin mx-4 my-2 text-justify">
+              Few things come close to the joy of Pizza cooked simply with
+              tender love and care. Rest assured that our we source the best
+              ingredients.
+            </p>
+          </div>
 
-        <div className="flex flex-col md:flex-row mx-auto text-center w-11/12 md:w-2/4 mb-8">
-          <button
-            onClick={handleSelectedMain}
-            className={
-              selectedMain
-                ? "bg-red-700 text-white font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-sm  focus:outline-none  w-3/4"
-                : "bg-white hover:bg-red-700 hover:text-white text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-md  focus:outline-none  w-3/4"
-            }
-            href="#v-pizza"
-            role="tab"
-            aria-controls="v-pizza"
-            aria-selected={selectedMain}
-          >
-            Main
-          </button>
-          <button
-            onClick={handleSelectedPizza}
-            className={
-              selectedPizza
-                ? "bg-red-700 text-white font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-sm  focus:outline-none  w-3/4"
-                : "bg-white hover:bg-red-700 hover:text-white text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-md  focus:outline-none  w-3/4"
-            }
-            href="#v-pizza"
-            role="tab"
-            aria-controls="v-pizza"
-            aria-selected={selectedPizza}
-          >
-            Pizze
-          </button>
-          <button
-            onClick={handleSelectedDesserts}
-            className={
-              selectedDesserts
-                ? "bg-red-700 text-white font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-sm  focus:outline-none  w-3/4"
-                : "bg-white hover:bg-red-700 hover:text-white text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-md  focus:outline-none  w-3/4"
-            }
-            href="#v-dessert"
-            role="tab"
-            aria-controls="v-dessert"
-            aria-selected={selectedDesserts}
-          >
-            Dessert
-          </button>
-          <button
-            onClick={handleSelectedDrinks}
-            className={
-              selectedDrinks
-                ? "bg-red-700 text-white font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-sm  focus:outline-none  w-3/4"
-                : "bg-white hover:bg-red-700 hover:text-white text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-md  focus:outline-none  w-3/4"
-            }
-            href="#v-drinks"
-            role="tab"
-            aria-controls="v-drinks"
-            aria-selected={selectedDrinks}
-          >
-            La Nostra Cantina
-          </button>
+          <div className="flex flex-col md:flex-row mx-auto text-center w-11/12 md:w-2/4 mb-8">
+            <button
+              onClick={handleSelectedMain}
+              className={
+                selectedMain
+                  ? "bg-red-700 text-white font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-sm  focus:outline-none  w-3/4"
+                  : "bg-white hover:bg-red-700 hover:text-white text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-md  focus:outline-none  w-3/4"
+              }
+              href="#v-main"
+              role="tab"
+              aria-controls="v-main"
+              aria-selected={selectedMain}
+            >
+              Main
+            </button>
+            <button
+              onClick={handleSelectedPizza}
+              className={
+                selectedPizza
+                  ? "bg-red-700 text-white font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-sm  focus:outline-none  w-3/4"
+                  : "bg-white hover:bg-red-700 hover:text-white text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-md  focus:outline-none  w-3/4"
+              }
+              href="#v-pizza"
+              role="tab"
+              aria-controls="v-pizza"
+              aria-selected={selectedPizza}
+            >
+              Pizze
+            </button>
+            <button
+              onClick={handleSelectedDesserts}
+              className={
+                selectedDesserts
+                  ? "bg-red-700 text-white font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-sm  focus:outline-none  w-3/4"
+                  : "bg-white hover:bg-red-700 hover:text-white text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-md  focus:outline-none  w-3/4"
+              }
+              href="#v-dessert"
+              role="tab"
+              aria-controls="v-dessert"
+              aria-selected={selectedDesserts}
+            >
+              Dessert
+            </button>
+            <button
+              onClick={handleSelectedDrinks}
+              className={
+                selectedDrinks
+                  ? "bg-red-700 text-white font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-sm  focus:outline-none  w-3/4"
+                  : "bg-white hover:bg-red-700 hover:text-white text-gray-800 font-semibold py-2 px-4 border-none mx-auto md:mx-2 shadow-md  focus:outline-none  w-3/4"
+              }
+              href="#v-drinks"
+              role="tab"
+              aria-controls="v-drinks"
+              aria-selected={selectedDrinks}
+            >
+              La Nostra Cantina
+            </button>
+          </div>
         </div>
+      </div>
 
-        {/* Main Menu Card */}
+      {/* Main Menu Card */}
+      {loading ? (
+        <Spinner />
+      ) : (
         <div
-          id="v-pizza"
+          id="v-main"
           className={
             selectedMain
-              ? "block w-11/12 md:w-3/5 flex flex-row flex-wrap text-left mx-auto p-2 mb-4 overflow-hidden shadow-lg"
+              ? "block max-w-md w-11/12 flex flex-col flex-wrap text-left mx-auto p-2 mb-4 overflow-hidden shadow-lg"
               : "hidden"
           }
         >
-          {main.map((m, i) => (
+          {main.items.map((m, i) => (
             <div key={i} className="w-full">
               <div>
                 <h1 className="text-2xl md:text-3xl text-center font-light mb-6 border border-red-200">
@@ -231,17 +258,21 @@ const Menu = () => {
             </div>
           ))}
         </div>
+      )}
 
-        {/* Pizza menu card */}
+      {/* Pizza menu card */}
+      {loading ? (
+        <Spinner />
+      ) : (
         <div
           id="v-pizza"
           className={
             selectedPizza
-              ? "block w-11/12 md:w-full flex flex-row flex-wrap text-left mx-auto p-2 mb-4 overflow-hidden shadow-lg"
+              ? "block container  md:w-full flex flex-row flex-wrap text-left mx-auto p-2 mb-4 overflow-hidden shadow-lg"
               : "hidden"
           }
         >
-          {pizzas.map((pizza, i) => (
+          {pizzas.items.map((pizza, i) => (
             <div
               key={i}
               className=" w-full lg:w-3/6 flex justify-between px-1 mb-4"
@@ -288,6 +319,11 @@ const Menu = () => {
             </p>
           </div>
         </div>
+      )}
+      {/* Desserts card */}
+      {loading ? (
+        <Spinner />
+      ) : (
         <div
           id="v-dessert"
           className={
@@ -296,7 +332,7 @@ const Menu = () => {
               : "hidden"
           }
         >
-          {desserts.map((dessert, i) => (
+          {desserts.items.map((dessert, i) => (
             <div key={i} className=" w-full flex justify-between mb-4">
               <div className="rounded-b lg:rounded-b-none justify-start lg:rounded-r p-1 md:p-2 w-4/6">
                 <div className="mb-2">
@@ -322,11 +358,57 @@ const Menu = () => {
             </p>
           </div>
         </div>
-        <div id="v-drinks" className={selectedDrinks ? "block" : "hidden"}>
-          drinks
+      )}
+      {/* Cantina Card */}
+      {loading ? (
+        <Spinner />
+      ) : (
+        <div
+          id="v-drinks"
+          className={
+            selectedDrinks
+              ? "block table container-md mx-2 flex-col p-1 md:p-2 mb-4 overflow-hidden shadow-lg"
+              : "hidden"
+          }
+        >
+          <div className="w-full flex flex-row justify-between">
+
+              <p className="px-2 py-2">{''}</p>
+              <p className=" py-2 ml-32 sm:ml-48 font-bold">Calice</p>
+              <p className="px-6 py-2 font-bold">Bottiglia</p>
+          </div>
+          {cantina.items.map((drink, i) => (
+            <div
+              key={i}
+              className="w-full table flex-col justify-between table-auto"
+            >
+              <div>
+                <div className="border border-red-200">
+                  <p className="px-2 py-2 text-lg md:text-3xl font-light mb-2">
+                    {drink.subtitle}
+                  </p>
+                </div>
+              </div>
+              {drink.types.map((bottle, i) => (
+                <div key={i} className="w-full flex  justify-between mb-4">
+                  <p className="px-2 py-2 w-1/2">{bottle.name}</p>
+                  <div className="px-2 py-2 w-1/4">
+                    <h2 className="text-gray-900 font-bold text-base md:text-xl ">
+                      {bottle.Calice && `€ ${bottle.Calice}`}
+                    </h2>
+                  </div>
+                  <div className="px-2 py-2 w-1/4 text-right">
+                    <h2 className="text-gray-900 font-bold text-base md:text-xl inline text-justify">
+                      &euro; {bottle.Bottiglia}
+                    </h2>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

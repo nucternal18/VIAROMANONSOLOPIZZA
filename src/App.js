@@ -4,6 +4,10 @@ import Cookies from 'js-cookie';
 // Routes
 import Routes from './Routes/routes';
 
+//upload menu db
+// import useFirestoreDB from './hooks/useFirestoreDB';
+// import { Menu_Array } from './menuDB';
+
 import CookieConsent from './components/CookieConsent';
 import './App.css';
 
@@ -18,9 +22,12 @@ function App() {
     }
   }
 
+  // useFirestoreDB(Menu_Array.map(({title, items}) => ({ title, items})));
+
+
   useEffect(() => {
     readCookie();
-  })
+  },[])
 
   return (
     <div >
