@@ -61,14 +61,13 @@ const Menu = () => {
     <>
       <div className="w-full my-8 flex flex-col flex-grow">
         <div className="container w-full mx-auto">
-          <div className="mb-8">
-            <h1 className="text-2xl md:text-3xl mx-auto mb-4 text-center w-3/5 border-b border-red-200">
-              Discover Our Menu
+          <div className="container-md mb-8">
+            <h1 className="text-2xl md:text-3xl mx-auto mb-4 text-center w-3/5 sm:w-2/6 border-b border-red-200">
+              Scopri il nostro menu
             </h1>
-            <p className=" text-center font-thin mx-4 my-2 text-justify">
-              Few things come close to the joy of Pizza cooked simply with
-              tender love and care. Rest assured that our we source the best
-              ingredients.
+            <p className="max-w-xl justify-center font-thin mx-auto px-2 my-2 text-justify">
+              Poche cose si avvicinano alla gioia della Pizza cucinata
+              semplicemente con tenero amore e cura e il meglio ingredienti.
             </p>
           </div>
 
@@ -85,7 +84,7 @@ const Menu = () => {
               aria-controls="v-main"
               aria-selected={selectedMain}
             >
-              Main
+              Cucina
             </button>
             <button
               onClick={handleSelectedPizza}
@@ -158,7 +157,7 @@ const Menu = () => {
                   >
                     <div className="rounded-b w-2/3 sm:w-3/4 lg:rounded-b-none justify-start lg:rounded-r p-2 flex flex-col">
                       <div className="mb-2">
-                        <div className="text-gray-900 font-bold text-xl mb-2 text-left ">
+                        <div className="text-gray-900 font-light text-xl mb-2 text-left ">
                           {ant.name}
                         </div>
                         <div className="text-red-400 font-light text-xl text-left ">
@@ -185,7 +184,7 @@ const Menu = () => {
                   >
                     <div className="rounded-b w-2/3 sm:w-3/4 lg:rounded-b-none justify-start lg:rounded-r p-2 flex flex-col">
                       <div className="mb-2">
-                        <div className="text-gray-900 font-bold text-xl mb-2 text-left ">
+                        <div className="text-gray-900 font-light text-xl mb-2 text-left ">
                           {prm.name}
                         </div>
                         <div className="text-red-400 font-light text-xl text-left ">
@@ -212,7 +211,7 @@ const Menu = () => {
                   >
                     <div className="rounded-b w-2/3 sm:w-3/4 lg:rounded-b-none justify-start lg:rounded-r p-2 flex flex-col">
                       <div className="mb-2">
-                        <div className="text-gray-900 font-bold text-xl mb-2 text-left ">
+                        <div className="text-gray-900 font-light text-xl mb-2 text-left ">
                           {sec.name}
                         </div>
                         <div className="text-red-400 font-light text-xl text-left ">
@@ -239,7 +238,7 @@ const Menu = () => {
                   >
                     <div className="rounded-b w-2/3 sm:w-3/4 lg:rounded-b-none justify-start lg:rounded-r p-2 flex flex-col">
                       <div className="mb-2">
-                        <div className="text-gray-900 font-bold text-xl mb-2 text-left ">
+                        <div className="text-gray-900 font-light text-xl mb-2 text-left ">
                           {cont.name}
                         </div>
                         <div className="text-red-400 font-light text-xl text-left ">
@@ -279,7 +278,7 @@ const Menu = () => {
             >
               <div className="rounded-b w-2/3 sm:w-3/4 lg:rounded-b-none justify-start lg:rounded-r p-2 flex flex-col">
                 <div className="mb-2">
-                  <div className="text-gray-900 font-bold text-xl mb-2 text-left ">
+                  <div className="text-gray-900 font-light text-xl mb-2 text-left ">
                     {pizza.name}
                   </div>
                   <div className="flex flex-row flex-wrap">
@@ -303,14 +302,14 @@ const Menu = () => {
           ))}
           <div className="p-2">
             <p className="text-gray-900 font-light text-base sm:text-xl mb-2  text-left">
-              Tutte le nostre pizze possono essere prodotte con impasto
-              integrale +1,00 &euro; da listino e impasto per celiaci +2,00
-              &euro; da listino Ingredienti extra da 1,00 a 3,00 &euro;{" "}
+              Tutte le nostre pizze possono essere prodotte con impasto per
+              celiaci +2,00 &euro; da listino Ingredienti extra da 1,00 a 3,00
+              &euro;{" "}
             </p>
             <p className="text-gray-900 font-light text-base sm:text-xl mb-2  text-left">
-              All our pizza's can be prepared with whole meal dough adding +1,00
-              &euro; to the price and dough for celiacs adding +2,00 &euro; to
-              the price. Extra ingredients from 1,00 to 3,00 &euro;
+              All our pizza's can be prepared with dough for celiacs adding
+              +2,00 &euro; to the price. Extra ingredients from 1,00 to 3,00
+              &euro;
             </p>
             <p className="text-gray-900 font-light text-base sm:text-xl mb-2  text-left">
               A lato degli ingredienti vengono riportati i codici degli
@@ -336,7 +335,7 @@ const Menu = () => {
             <div key={i} className=" w-full flex justify-between mb-4">
               <div className="rounded-b lg:rounded-b-none justify-start lg:rounded-r p-1 md:p-2 w-4/6">
                 <div className="mb-2">
-                  <div className="text-gray-900 font-bold text-lg md:text-xl mb-2 text-left break-all ">
+                  <div className="text-gray-900 font-light text-lg md:text-xl mb-2 text-left break-all ">
                     {dessert.name}
                   </div>
                 </div>
@@ -367,37 +366,38 @@ const Menu = () => {
           id="v-drinks"
           className={
             selectedDrinks
-              ? "block table container-md mx-2 flex-col p-1 md:p-2 mb-4 overflow-hidden shadow-lg"
+              ? "block table container-md w-full md:w-3/5 mx-2 flex-col p-1 md:p-2 mx-auto mb-4 overflow-hidden shadow-lg"
               : "hidden"
           }
         >
           <div className="w-full flex flex-row justify-between">
-
-              <p className="px-2 py-2">{''}</p>
-              <p className=" py-2 ml-32 sm:ml-48 font-bold">Calice</p>
-              <p className="px-6 py-2 font-bold">Bottiglia</p>
+            <p className="px-2 py-2">{""}</p>
+            <p className=" py-2 ml-24 sm:ml-48 font-bold">Calice</p>
+            <p className="px-2 py-2 font-bold">Bottiglia</p>
           </div>
           {cantina.items.map((drink, i) => (
             <div
               key={i}
-              className="w-full table flex-col justify-between table-auto"
+              className="w-full table flex-col justify-between table-auto px-1"
             >
               <div>
-                <div className="border border-red-200">
-                  <p className="px-2 py-2 text-lg md:text-3xl font-light mb-2">
+                <div className="border border-red-200 text-center">
+                  <p className="px-1 py-1 text-lg md:text-3xl font-light">
                     {drink.subtitle}
                   </p>
                 </div>
               </div>
               {drink.types.map((bottle, i) => (
                 <div key={i} className="w-full flex  justify-between mb-4">
-                  <p className="px-2 py-2 w-1/2">{bottle.name}</p>
-                  <div className="px-2 py-2 w-1/4">
+                  <p className="px-1 py-2 w-1/3 sm:w-1/2 text-lg md:text-xl">
+                    {bottle.name}
+                  </p>
+                  <div className="px-2 py-2 sm:w-1/4">
                     <h2 className="text-gray-900 font-bold text-base md:text-xl ">
                       {bottle.Calice && `€ ${bottle.Calice}`}
                     </h2>
                   </div>
-                  <div className="px-2 py-2 w-1/4 text-right">
+                  <div className="px-1 py-2 w-1/4 text-right">
                     <h2 className="text-gray-900 font-bold text-base md:text-xl inline text-justify">
                       &euro; {bottle.Bottiglia}
                     </h2>

@@ -17,53 +17,53 @@ const Footer = () => {
               un sogno alla realizzazione
             </p>
           </div>
-          <div className="w-3/4 md:w-1/4 mb-4">
+          <div className="w-ful px-2 sm:px-0 md:w-1/4 mb-4">
             <h1 className="text-2xl mb-4">Orari di apertura</h1>
             <ul className="font-thin">
               <li className="flex flex-row mb-4 justify-between">
-                Lunedi: <strong className="ml-6">Closed</strong>
+                Lunedi: <strong className="ml-6">Chiuso</strong>
               </li>
               <li className="flex flex-row mb-4 justify-between">
                 Martedi:
                 <p className="flex flex-col">
-                  <strong>10.30am-2.30pm</strong>
-                  <strong>6-11.30pm</strong>
+                  <strong>10.30am - 14.30pm</strong>
+                  <strong>18.00 - 23.30pm</strong>
                 </p>
               </li>
               <li className="flex flex-row mb-4 justify-between">
-                Mecrlodi:
+                Mercoledi:
                 <p className="flex flex-col">
-                  <strong>10.30am-2.30pm</strong>
-                  <strong>6-11.30pm</strong>
+                  <strong>10.30am - 14.30pm</strong>
+                  <strong>18.00 - 23.30pm</strong>
                 </p>
               </li>
               <li className="flex flex-row mb-4 justify-between">
-                Thursday:
+                Giovedi:
                 <p className="flex flex-col">
-                  <strong>10.30am-2.30pm</strong>
-                  <strong>6-11.30pm</strong>
+                  <strong>10.30am - 14.30pm</strong>
+                  <strong>18.00 - 23.30pm</strong>
                 </p>
               </li>
               <li className="flex flex-row mb-4 justify-between">
-                Friday:
+                Venerdi:
                 <p className="flex flex-col">
-                  <strong>10.30am-2.30pm</strong>
-                  <strong>6-11.30pm</strong>
+                  <strong>10.30am - 14.30pm</strong>
+                  <strong>18.00 - 23.30pm</strong>
                 </p>
               </li>
               <li className="flex flex-row mb-4 justify-between">
-                Saturday:
+                Sabato:
                 <p className="flex flex-col">
-                  <strong>10.30am-2.30pm</strong>
-                  <strong>6-11.30pm</strong>
+                  <strong>10.30am - 14.30pm</strong>
+                  <strong>18.00 - 23.30pm</strong>
                 </p>
               </li>
               <li className="flex flex-row mb-4 justify-between">
-                Sunday:
+                Domenica:
                 <p className="flex flex-col">
-                  <strong>10.30am-2.30pm</strong>
-                  <strong>6-11.30pm</strong>
-                </p>
+                  <strong>10.30am - 14.30pm</strong>
+                  <strong>18.00 - 23.30pm</strong>
+                </p> 
               </li>
             </ul>
           </div>
@@ -75,20 +75,20 @@ const Footer = () => {
             <h1 className="text-2xl mb-4">Chiamaci</h1>
             <p className="mb-4 font-thin">+39 0331 913574</p>
             <div className="z-50">
-              <ul className="flex flex-row">
-                <li className="px-1 py-2 m-1 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:text-blue-500">
+              <ul className="flex flex-col sm:flex-row">
+                <li className="px-1 py-2 m-1 hover:text-blue-500">
                   <a href="https://www.facebook.com/pages/category/Pizza-Place/Viaromanonsolopizza-108686514250214/">
-                    <i className="fab fa-facebook text-2xl"></i>
+                    <i className="fab fa-facebook text-2xl" />
                   </a>
                 </li>
-                <li className="px-1 py-2 m-1 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:text-blue-500">
+                <li className="px-1 py-2 m-1 hover:text-blue-500">
                   <a href="https://www.instagram.com/viaromanonsolopizza/">
-                    <i className="fab fa-instagram text-2xl"></i>
+                    <i className="fab fa-instagram text-2xl" />
                   </a>
                 </li>
-                <li className="px-1 py-2 m-1 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:text-blue-500">
+                <li className="px-1 py-2 m-1 hover:text-blue-500">
                   <a href="https://www.google.com/maps/place/viaROMAnonsolopizza/@45.7240617,8.6311318,15z/data=!4m5!3m4!1s0x0:0x6dc73345553ebfda!8m2!3d45.7240617!4d8.6311318">
-                    <i className="fab fa-google text-2xl"></i>
+                    <i className="fab fa-google text-2xl" />
                   </a>
                 </li>
               </ul>

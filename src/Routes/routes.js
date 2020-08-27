@@ -23,9 +23,9 @@ const Routes = () => {
           <ErrorBoundary>
             <Suspense fallback={<Spinner />}>
               <Route exact path='/' component={Home} />
-              <Route exact path='/gallery' component={Gallery} />
+              <Route exact path='/galleria' component={Gallery} />
               <Route exact path='/menu' component={Menu} />
-              <Route exact path='/contact' component={Contact} />
+              <Route exact path='/contatti' component={Contact} />
             </Suspense>
           </ErrorBoundary>
       </Switch>

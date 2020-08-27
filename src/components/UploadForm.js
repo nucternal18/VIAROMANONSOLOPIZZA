@@ -20,12 +20,16 @@ const UploadForm = () => {
   };
 
   return (
-    <form>
-      <input type="file" onChange={changeHandler} />
-      <div className="">
-          {error && <div className="">{error}</div>}
-  { file && <div className="">{ file.name }</div>}
-  {file && <ProgressBar file={file} setFile={setFile} />}
+    <form className="flex flex-col justify-center text-center">
+      <label>
+        <i class="fas fa-plus-circle text-4xl"></i>
+        <input type="file" onChange={changeHandler} className="hidden" />
+      </label>
+
+      <div>
+        {error && <div className="justify-center">{error}</div>}
+        {file && <div>{file.name}</div>}
+        {file && <ProgressBar file={file} setFile={setFile} />}
       </div>
     </form>
   );
