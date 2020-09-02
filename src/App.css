@@ -80,7 +80,7 @@ body{
 
 /* Slider image */
 #intro {
-    height: 400px;
+    height: 700px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -108,7 +108,7 @@ body{
 
 @media (max-width: 576px) {
     #intro {
-        height: 700px;
+        height: 400px;
     }
 
     .backdrop img {

@@ -1,6 +1,7 @@
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
 import 'firebase/firestore';
+import "firebase/auth";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDB1xbT_owp2OHRUmiPjDNiOlxmLHBV1NU",
@@ -29,11 +30,37 @@ const convertCollectionsSnapshotToMap = (collections) => {
     return accumulator;
   }, {});
 };
+
+
+const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) return;
+
+  const userRef = projectFirestore.doc(`users/${userAuth.uid}`);
+  const snapshot = await userRef.get();
+
+  if (!snapshot.exists) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData,
+      });
+    } catch (error) {
+      console.log("error creating user ", error.message);
+    }
+  }
+
+  return userRef;
+};
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
+  const auth = firebase.auth();
   const projectStorage = firebase.storage();
   const projectFirestore = firebase.firestore();
   const timestamp = firebase.firestore.FieldValue.serverTimestamp;
 
-  export {convertCollectionsSnapshotToMap, projectStorage, projectFirestore, timestamp};
+  export {convertCollectionsSnapshotToMap, projectStorage, projectFirestore, timestamp, auth, createUserProfileDocument};

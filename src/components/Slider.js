@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from "react";
 
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from "react-responsive-carousel";
+import useFirestore from "../hooks/useFirestore";
+import SliderImgCard from '../components/SliderImgCard'
 
-// Import Images
-import PizzaImg1 from '../assets/img/aliyah-jamous-2BJ4la6xgRw-unsplash.jpg';
-import PizzaImg2 from '../assets/img/hemant-latawa-IfQlwNqJqV8-unsplash.jpg';
-import PizzaImg3 from '../assets/img/ivan-torres-MQUqbmszGGM-unsplash.jpg';
-import PizzaImg4 from '../assets/img/nik-owens-40OJLYVWeeM-unsplash.jpg';
 
-const Slider = () => (
-  <div>
+const Slider = () => {
+  const { docs } = useFirestore("sliderimages");
+  const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef();
+  useEffect(() => {
+    if (imgRef.current && imgRef.current.complete) {
+      setLoaded(true);
+    }
+  }, []);
+
+  return (
     <Carousel
       autoPlay
       infiniteLoop
@@ -17,20 +23,17 @@ const Slider = () => (
       showThumbs={false}
       className="w-full"
     >
-      <div >
-        <img alt="" src={PizzaImg1} id="intro" />
-      </div>
-      <div>
-        <img alt="" src={PizzaImg2} id="intro" />
-      </div>
-      <div>
-        <img alt="" src={PizzaImg3} id="intro" />
-      </div>
-      <div>
-        <img alt="" src={PizzaImg4} id="intro" />
-      </div>
+      {docs &&
+        docs.map((doc) => (
+          <SliderImgCard
+            setLoaded={setLoaded}
+            image={doc}
+            key={ doc.id }
+            imgRef={imgRef}
+          />
+        ))}
     </Carousel>
-  </div>
-);
+  );
+};
 
 export default Slider;

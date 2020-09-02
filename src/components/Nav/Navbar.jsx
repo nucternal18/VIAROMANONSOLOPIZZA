@@ -1,9 +1,8 @@
+import React from "react";
+import Burger from "./Burger";
 
-import React from 'react';
-import Burger from './Burger';
-
-import styled from 'styled-components';
-import Striscia from '../../assets/img/strisciaNoBG.jpg';
+import styled from "styled-components";
+import Striscia from "../../assets/img/strisciaNoBG.jpg";
 
 const Nav = styled.nav`
   width: 100%;
@@ -26,16 +25,18 @@ const Nav = styled.nav`
     }
   }
 `;
- 
+
 const Navbar = () => {
   return (
-    <Nav>
-      <div className='logo'>
+    <header>
+      <Nav>
+        <div className="logo">
           <img src={Striscia} alt="via roma non solo pizza logo" />
         </div>
-      <Burger />
-    </Nav>
-  )
-}
+        <Burger />
+      </Nav>
+    </header>
+  );
+};
 
 export default Navbar;

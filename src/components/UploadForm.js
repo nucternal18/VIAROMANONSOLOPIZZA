@@ -22,7 +22,7 @@ const UploadForm = () => {
   return (
     <form className="flex flex-col justify-center text-center">
       <label>
-        <i class="fas fa-plus-circle text-4xl"></i>
+        <i className="fas fa-plus-circle text-4xl"></i>
         <input type="file" onChange={changeHandler} className="hidden" />
       </label>
 

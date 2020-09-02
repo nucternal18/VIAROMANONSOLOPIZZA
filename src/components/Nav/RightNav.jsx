@@ -1,8 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+
+//context
+import { AuthContext } from "../../context/authContext";
+
 const RightNav = ({ open, setOpen }) => {
+  const authContext = useContext(AuthContext);
+
+  const { isAuthenticated, logout } = authContext;
   return (
     <Ul open={open} onClick={() => setOpen(!open)}>
       <Link to="/">
@@ -20,6 +27,9 @@ const RightNav = ({ open, setOpen }) => {
       <Link to="/contatti">
         <li>CONTATTI</li>
       </Link>
+      { isAuthenticated && (
+        <li onClick={() => logout()}>ESCI</li>
+      )}
     </Ul>
   );
 };
