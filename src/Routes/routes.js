@@ -16,7 +16,7 @@ import { auth, createUserProfileDocument } from '../firebase/config'
 
 //Pages
 import CookiePolicy from '../Pages/CookiePolicy';
-// import PageNotFound from '../Pages/PageNotFound';
+import PageNotFound from '../Pages/PageNotFound';
 const Home = lazy(() => import("../Pages/Home"));
 const Gallery = lazy(() => import("../Pages/Gallery"));
 const Menu = lazy(() => import("../Pages/Menu"));
@@ -65,19 +65,19 @@ const Routes = () => {
   return (
     <>
       <Navbar />
-      <Switch>
         <ErrorBoundary>
           <Suspense fallback={<Spinner />}>
-            <Route exact path="/" component={Home} />
-            <Route path="/galleria" component={Gallery} />
-            <Route path="/menu" component={Menu} />
-            <Route path="/contatti" component={Contact} />
-            <Route path="/login" component={Login} />
-            <Route path="/cookie-policy" component={CookiePolicy} />
-            {/* <Route path="*" component={PageNotFound} /> */}
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/galleria" component={Gallery} />
+              <Route path="/menu" component={Menu} />
+              <Route path="/contatti" component={Contact} />
+              <Route path="/login" component={Login} />
+              <Route path="/cookie-policy" component={CookiePolicy} />
+              <Route path="*" component={PageNotFound} />
+            </Switch>
           </Suspense>
         </ErrorBoundary>
-      </Switch>
       <Footer />
     </>
   );
